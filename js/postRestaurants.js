@@ -6,6 +6,11 @@ formEl.addEventListener("submit", async (event) => {
   const formData = new FormData(formEl);
   const data = Object.fromEntries(formData);
 
+  // 🔍 DEBUG LOGS
+  console.log("Form data object:", data);
+  console.log("restaurant_name value:", data.restaurant_name);
+
+  // Basic validation
   if (!data.restaurant_name) {
     $.toaster({
       priority: "danger",
@@ -42,7 +47,8 @@ formEl.addEventListener("submit", async (event) => {
 
     formEl.reset();
   } catch (err) {
-    console.error(err);
+    console.error("ERROR:", err);
+
     $.toaster({
       priority: "danger",
       title: "Error",
