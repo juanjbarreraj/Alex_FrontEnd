@@ -1,0 +1,51 @@
+<html>
+    <title>Library</title>
+
+    <head>
+
+      <!--Style Sheet-->
+      <link rel="stylesheet" href="./stylesheets/style.css" />
+
+      <!--Bootstrap-->
+      <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700" rel="stylesheet">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+      <link href="https://unpkg.com/gridjs/dist/theme/mermaid.min.css" rel="stylesheet" />
+
+    </head>
+<body>
+
+  <div class="container">
+    <div id="table">
+        <script src="https://unpkg.com/gridjs/dist/gridjs.umd.js"></script>
+        <script src="./js/getLibrary.js"></script>
+    </div>
+  </div>
+
+  <div class="container-fluid">
+      <div class="row">
+        <div class="home-button">
+          <button class="btn btn-secondary" onclick="window.location.href='LibraryAdd.html'">Add Library</button>
+          </div>
+       </div>
+    </div>
+
+    <h1 class="pages-text-center">Library Screen</h1>
+</body>
+
+<!-- CDN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+
+<!-- This is for toast messages-->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="./js/jquery.toaster.js"></script>
+
+<!--Calls our API Script-->
+<script src="./js/getLibrary.js"></script>
+
+</html>

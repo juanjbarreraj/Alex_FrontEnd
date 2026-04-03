@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Update Restaurant</title>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="./stylesheets/style.css" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+</head>
+
+<body>
+  <main class="page update-page">
+
+    <!-- Header -->
+    <header class="page-header text-center py-4">
+      <div class="container">
+        <h1 class="page-title">Update Restaurant</h1>
+        <p class="page-subtitle">Select and update restaurant details.</p>
+      </div>
+    </header>
+
+    <!-- Navigation -->
+    <div class="container mb-3">
+      <button class="btn btn-secondary" onclick="window.location.href='index.html'">
+        Home
+      </button>
+    </div>
+
+    <!-- Form Section -->
+    <section class="page-content">
+      <div class="container">
+        <form class="form form-card mx-auto" style="max-width: 700px;">
+
+          <!-- Select Restaurant -->
+          <div class="form-group">
+            <label for="id"><b>Select Restaurant:</b></label>
+            <select name="id" id="id" class="form-control"></select>
+          </div>
+
+          <!-- Restaurant Name -->
+          <div class="form-group">
+            <label for="restaurant_name"><b>Restaurant Name:</b></label>
+            <input
+              name="restaurant_name"
+              id="restaurant_name"
+              type="text"
+              class="form-control"
+              placeholder="Enter restaurant name"
+            />
+          </div>
+
+          <!-- Rating -->
+          <div class="form-group">
+            <label for="rating"><b>Rating (1–5):</b></label>
+            <input
+              name="rating"
+              id="rating"
+              type="number"
+              min="1"
+              max="5"
+              class="form-control"
+              placeholder="Optional"
+            />
+          </div>
+
+          <!-- Location -->
+          <div class="form-group">
+            <label for="location"><b>Location:</b></label>
+            <input
+              name="location"
+              id="location"
+              type="text"
+              class="form-control"
+              placeholder="e.g., Downtown, Oakland"
+            />
+          </div>
+
+          <!-- Type -->
+          <div class="form-group">
+            <label for="type"><b>Type / Cuisine:</b></label>
+            <input
+              name="type"
+              id="type"
+              type="text"
+              class="form-control"
+              placeholder="e.g., Italian, American"
+            />
+          </div>
+
+          <!-- Submit -->
+          <div class="form-group">
+            <button type="submit" class="btn btn-primary btn-lg btn-block">
+              Update Restaurant
+            </button>
+          </div>
+
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="./js/jquery.toaster.js"></script>
+
+  <!-- Load Restaurants into dropdown -->
+  <script>
+    (async function loadRestaurants() {
+      const select = document.getElementById("id");
+      const res = await fetch("https://restaurantsbackend.onrender.com/api/v1/restaurants");
+      const restaurants = await res.json();
+
+      select.innerHTML = "";
+
+      restaurants.forEach((r) => {
+        const opt = document.createElement("option");
+        opt.value = r.id;
+        opt.text = `${r.id} — ${r.restaurant_name}`;
+        select.appendChild(opt);
+      });
+    })();
+  </script>
+
+  <!-- Update API -->
+  <script src="./js/updateRestaurant.js"></script>
+</body>
+</html>

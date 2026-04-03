@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Add Restaurant</title>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="./stylesheets/style.css" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+</head>
+
+<body>
+  <main class="page add-page">
+    
+    <!-- Header -->
+    <header class="page-header text-center py-4">
+      <div class="container">
+        <h1 class="page-title">Add a Restaurant</h1>
+        <p class="page-subtitle">Enter restaurant details below.</p>
+      </div>
+    </header>
+
+    <!-- Navigation -->
+    <div class="container mb-3">
+      <button class="btn btn-secondary" onclick="window.location.href='index.html'">
+        Home
+      </button>
+    </div>
+
+    <!-- Form Section -->
+    <section class="page-content">
+      <div class="container">
+        <form class="form form-card mx-auto" style="max-width: 700px;">
+
+          <!-- Restaurant Name -->
+          <div class="form-group">
+            <label for="restaurant_name"><b>Restaurant Name:</b></label>
+            <input
+              name="restaurant_name"
+              id="restaurant_name"
+              type="text"
+              class="form-control"
+              placeholder="Enter restaurant name"
+              required
+            />
+          </div>
+
+          <!-- Rating -->
+          <div class="form-group">
+            <label for="rating"><b>Rating (1–5):</b></label>
+            <input
+              name="rating"
+              id="rating"
+              type="number"
+              min="1"
+              max="5"
+              class="form-control"
+              placeholder="Optional"
+            />
+          </div>
+
+          <!-- Location -->
+          <div class="form-group">
+            <label for="location"><b>Location:</b></label>
+            <input
+              name="location"
+              id="location"
+              type="text"
+              class="form-control"
+              placeholder="e.g., Downtown, Oakland"
+            />
+          </div>
+
+          <!-- Type -->
+          <div class="form-group">
+            <label for="type"><b>Type / Cuisine:</b></label>
+            <input
+              name="type"
+              id="type"
+              type="text"
+              class="form-control"
+              placeholder="e.g., Italian, American"
+            />
+          </div>
+
+          <!-- Submit -->
+          <div class="form-group">
+            <button type="submit" class="btn btn-primary btn-lg btn-block">
+              Add Restaurant
+            </button>
+          </div>
+
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="./js/jquery.toaster.js"></script>
+
+  <!-- API Script -->
+  <script src="./js/postRestaurant.js"></script>
+</body>
+</html>
