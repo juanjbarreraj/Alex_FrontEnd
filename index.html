@@ -4,71 +4,60 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- Styles -->
   <link rel="stylesheet" href="./stylesheets/style.css" />
 
-  <!-- Fonts / Libraries -->
-  <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700,800" rel="stylesheet" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" />
-  <link href="https://unpkg.com/gridjs/dist/theme/mermaid.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://unpkg.com/gridjs/dist/theme/mermaid.min.css" />
 
-  <title>Restaurants</title>
+  <title>Restaurants Directory</title>
 </head>
 
 <body>
   <main class="page restaurants-page">
+
     <header class="page-header text-center py-4">
       <div class="container">
+        <p class="page-subtitle">Pittsburgh Restaurant Manager</p>
         <h1 class="page-title">Restaurants Directory</h1>
-        <p class="page-subtitle">Browse, search, and manage restaurant records.</p>
+        <p class="page-subtitle">
+          Browse, search, add, and update restaurant records connected to your PostgreSQL database.
+        </p>
+
+        <div class="action-buttons d-flex flex-wrap justify-content-center mt-4">
+          <button class="btn btn-primary action-btn" onclick="window.location.href='RestaurantsAdd.html'">
+            + Add Restaurant
+          </button>
+
+          <button class="btn btn-secondary action-btn" onclick="window.location.href='RestaurantsUpdate.html'">
+            Update Restaurant
+          </button>
+        </div>
       </div>
     </header>
 
     <section class="page-content">
       <div class="container">
         <div class="table-section">
+          <div class="d-flex justify-content-between align-items-center flex-wrap mb-3">
+            <div>
+              <h2 style="font-weight: 800; margin-bottom: 4px;">Restaurant Records</h2>
+              <p class="page-subtitle" style="text-align:left; margin:0;">
+                Live data from your Render PostgreSQL database.
+              </p>
+            </div>
+          </div>
+
           <div id="table"></div>
         </div>
       </div>
     </section>
 
-    <section class="page-actions py-4">
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="action-buttons d-flex flex-wrap justify-content-center gap-3">
-            <button
-              class="btn btn-secondary action-btn"
-              onclick="window.location.href='RestaurantsAdd.html'"
-            >
-              Add Restaurant
-            </button>
-
-            <button
-              class="btn btn-secondary action-btn"
-              onclick="window.location.href='RestaurantsUpdate.html'"
-            >
-              Update Restaurant
-            </button>
-          </div>
-        </div>
-      </div>
-    </section>
   </main>
 
-  <!-- CDN -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
-
-  <!-- Toast messages -->
-  <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
   <script src="./js/jquery.toaster.js"></script>
-
-  <!-- Grid.js -->
   <script src="https://unpkg.com/gridjs/dist/gridjs.umd.js"></script>
-
-  <!-- Page script -->
   <script src="./js/getRestaurants.js"></script>
 </body>
 </html>

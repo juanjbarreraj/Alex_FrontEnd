@@ -109,7 +109,7 @@
   <script>
     (async function loadRestaurants() {
       const select = document.getElementById("id");
-      const res = await fetch("https://restaurantsbackend.onrender.com/api/v1/restaurants");
+      const res = await fetch("https://restaurantsbackend-us4c.onrender.com/api/v1/restaurants");
       const restaurants = await res.json();
 
       select.innerHTML = "";
