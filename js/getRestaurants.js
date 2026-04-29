@@ -14,7 +14,7 @@ new gridjs.Grid({
   ],
 
   server: {
-    url: "https://restaurantsbackend.onrender.com/api/v1/restaurants",
+    url: "https://restaurantsbackend-us4c.onrender.com/api/v1/restaurants",
 
     then: (data) => {
       data.sort((a, b) => b.id - a.id);
