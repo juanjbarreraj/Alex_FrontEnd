@@ -4,60 +4,162 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <link rel="stylesheet" href="./stylesheets/style.css" />
+  <title>Restaurants Directory</title>
 
-  <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700,800" rel="stylesheet" />
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700,800,900" rel="stylesheet" />
+
+  <!-- Bootstrap -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+
+  <!-- Grid.js -->
   <link rel="stylesheet" href="https://unpkg.com/gridjs/dist/theme/mermaid.min.css" />
 
-  <title>Restaurants Directory</title>
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="./stylesheets/style.css" />
 </head>
 
 <body>
-  <main class="page restaurants-page">
+  <main class="site-page">
 
-    <header class="page-header text-center py-4">
-      <div class="container">
-        <p class="page-subtitle">Pittsburgh Restaurant Manager</p>
-        <h1 class="page-title">Restaurants Directory</h1>
-        <p class="page-subtitle">
-          Browse, search, add, and update restaurant records connected to your PostgreSQL database.
+    <!-- NAVBAR -->
+    <nav class="restaurant-navbar">
+      <div class="container nav-inner">
+        <a href="index.html" class="brand">
+          <span class="brand-mark">R</span>
+          <span class="brand-text">Steel City Bites</span>
+        </a>
+
+        <div class="nav-links">
+          <a href="index.html">Directory</a>
+          <a href="RestaurantsAdd.html">Add Restaurant</a>
+          <a href="RestaurantsUpdate.html">Update</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- HERO -->
+    <header class="hero-section">
+      <div class="hero-overlay"></div>
+
+      <div class="container hero-content reveal">
+        <div class="hero-badge">
+          Pittsburgh Restaurant Manager
+        </div>
+
+        <h1 class="hero-title">
+          Discover, manage, and organize your restaurant list.
+        </h1>
+
+        <p class="hero-subtitle">
+          A polished restaurant directory connected to your live PostgreSQL database.
+          Browse records, search restaurants, add new places, and update existing listings.
         </p>
 
-        <div class="action-buttons d-flex flex-wrap justify-content-center mt-4">
-          <button class="btn btn-primary action-btn" onclick="window.location.href='RestaurantsAdd.html'">
+        <div class="hero-actions">
+          <button class="btn btn-primary-custom" onclick="window.location.href='RestaurantsAdd.html'">
             + Add Restaurant
           </button>
 
-          <button class="btn btn-secondary action-btn" onclick="window.location.href='RestaurantsUpdate.html'">
+          <button class="btn btn-outline-custom" onclick="window.location.href='RestaurantsUpdate.html'">
             Update Restaurant
           </button>
         </div>
       </div>
     </header>
 
-    <section class="page-content">
+    <!-- FEATURE CARDS -->
+    <section class="feature-section">
       <div class="container">
-        <div class="table-section">
-          <div class="d-flex justify-content-between align-items-center flex-wrap mb-3">
-            <div>
-              <h2 style="font-weight: 800; margin-bottom: 4px;">Restaurant Records</h2>
-              <p class="page-subtitle" style="text-align:left; margin:0;">
-                Live data from the Render PostgreSQL database.
+        <div class="row">
+
+          <div class="col-md-4 mb-4 reveal">
+            <div class="feature-card">
+              <div class="feature-icon">🍽️</div>
+              <h3>Live Restaurant Records</h3>
+              <p>
+                View restaurant data directly from your connected backend and PostgreSQL database.
               </p>
             </div>
           </div>
 
+          <div class="col-md-4 mb-4 reveal delay-1">
+            <div class="feature-card">
+              <div class="feature-icon">⭐</div>
+              <h3>Ratings & Cuisine</h3>
+              <p>
+                Track restaurant ratings, cuisine types, and Pittsburgh neighborhood locations.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-md-4 mb-4 reveal delay-2">
+            <div class="feature-card">
+              <div class="feature-icon">⚡</div>
+              <h3>Fast Management</h3>
+              <p>
+                Quickly add new restaurants or update existing records from a professional interface.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- TABLE SECTION -->
+    <section class="directory-section">
+      <div class="container">
+        <div class="table-panel reveal">
+
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Restaurant database</p>
+              <h2>Restaurant Records</h2>
+              <p>
+                Search and browse your live restaurant list.
+              </p>
+            </div>
+
+            <div class="section-pill">
+              Live PostgreSQL Data
+            </div>
+          </div>
+
           <div id="table"></div>
+
         </div>
       </div>
     </section>
 
   </main>
 
+  <!-- Scripts -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="./js/jquery.toaster.js"></script>
   <script src="https://unpkg.com/gridjs/dist/gridjs.umd.js"></script>
   <script src="./js/getRestaurants.js"></script>
+
+  <!-- Fade-in animation script -->
+  <script>
+    const revealElements = document.querySelectorAll(".reveal");
+
+    const revealObserver = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+          }
+        });
+      },
+      {
+        threshold: 0.15
+      }
+    );
+
+    revealElements.forEach(element => {
+      revealObserver.observe(element);
+    });
+  </script>
 </body>
 </html>
